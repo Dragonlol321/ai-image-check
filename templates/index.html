@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Image Check</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main class="shell">
+  <header><div class="logo">✦ AI CHECK</div><span class="local">ЛОКАЛЬНЫЙ АНАЛИЗ</span></header>
+  <section class="hero">
+    <div class="eyebrow">ПРОВЕРКА ИЗОБРАЖЕНИЙ</div>
+    <h1>Настоящее фото<br><span>или работа ИИ?</span></h1>
+    <p>Загрузи картинку — модель проанализирует её и оценит вероятность генерации нейросетью.</p>
+  </section>
+
+  <section class="workspace">
+    <div class="drop" id="drop">
+      <div class="upload-icon">↑</div>
+      <h2>Перетащи изображение сюда</h2>
+      <p>или выбери файл на устройстве</p>
+      <label class="button" for="file">Выбрать изображение</label>
+      <input id="file" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+      <small>JPG, PNG или WEBP · до 15 МБ</small>
+    </div>
+
+    <div class="selected" id="selected" hidden>
+      <img id="preview" alt="Предпросмотр изображения">
+      <div class="file-info"><b id="filename"></b><span id="filesize"></span><button class="link" id="remove">Убрать файл</button></div>
+    </div>
+    <button class="analyze" id="analyze" disabled>Проверить изображение <span>→</span></button>
+    <div class="status" id="status" aria-live="polite"></div>
+
+    <section class="result" id="result" hidden>
+      <div class="result-top"><span class="eyebrow">РЕЗУЛЬТАТ АНАЛИЗА</span><span class="model-tag">Smaug AI</span></div>
+      <h2 id="verdict"></h2>
+      <div class="score-line"><strong id="score">—</strong><span>вероятность генерации ИИ</span></div>
+      <div class="meter"><div id="meter-fill"></div></div>
+      <p class="caution">Это оценка модели, а не доказательство происхождения изображения. Детекторы могут ошибаться, особенно на обработанных, сжатых или необычных изображениях.</p>
+    </section>
+  </section>
+  <footer>
+    <div>Изображения анализируются на этом компьютере и удаляются после проверки.</div>
+    <div>Модель: <a href="https://huggingface.co/abacusai/Smaug-AI-Image-Detector" target="_blank" rel="noopener">Smaug-AI-Image-Detector</a></div>
+  </footer>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
